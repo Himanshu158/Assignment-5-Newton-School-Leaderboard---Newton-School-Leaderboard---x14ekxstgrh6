@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-app.get("/topRankings", async (req, res) => {
+app.get("/topRankings", (req, res) => {
     const off=req.query.offset?req.query.offset:parseInt(0);
     const lim=req.query.limit?req.query.limit:parseInt(20);
     const arr=[];
