@@ -17,12 +17,11 @@ app.get("/topRankings", async (req, res) => {
     const lim=req.query.limit?req.query.limit:parseInt(20);
     const arr=[];
     
-    console.log(off);
-    console.log(lim);
+   
     for(let i=off;i<lim;i++){
         arr.push(data[i]);
     }
-    res.send(arr);
+    res.status(200).send(arr);
 });
 
 
