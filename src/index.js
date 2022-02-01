@@ -16,10 +16,13 @@ app.get("/topRankings", (req, res) => {
     const off=req.query.offset?req.query.offset:parseInt(0);
     const lim=req.query.limit?req.query.limit:parseInt(20);
     const arr=[];
-    
-   
-    for(let i=off;i<lim;i++){
+    let i=off;
+    console.log(off+" "+lim);
+    let j=0;
+    while(j<lim){
         arr.push(data[i]);
+        i++;
+        j++;
     }
     res.status(200).send(arr);
 });
