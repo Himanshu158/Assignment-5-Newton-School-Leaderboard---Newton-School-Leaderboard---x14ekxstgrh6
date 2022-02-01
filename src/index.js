@@ -1,4 +1,5 @@
 const express = require('express')
+const assert=require('assert')
 const app = express()
 const bodyParser = require("body-parser");
 const port = 8080
@@ -13,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get("/topRankings", (req, res) => {
-    const off=req.query.offset?req.query.offset:parseInt(0);
-    const lim=req.query.limit?req.query.limit:parseInt(20);
+    const off=req.query.offset?parseInt(req.query.offset):parseInt(0);
+    const lim=req.query.limit?parseInt(req.query.limit):parseInt(20);
     const arr=[];
     let i=off;
     console.log(off+" "+lim);
